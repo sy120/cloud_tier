@@ -1,7 +1,0 @@
-#!/bin/bash
-int=0
-while(($int<$1))
-do
-    dd if=/dev/zero of=/home/bitnami/files/$int
-    let "int++"
-done
