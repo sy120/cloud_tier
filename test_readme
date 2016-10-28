@@ -1,0 +1,15 @@
+Five Steps to Test Fuse Read and Write for Large TXT Files
+//recreate the directory files and create 500 4K blocks in the "/home/bitnmai/files" directory
+./buildblock.sh
+
+//unmount and mount the virtual disk named "/home/bitnami/demo" 
+./unmount_mount.sh 
+
+//write test syntax: ./test write offset_number(you define), the input folder is a 40K txt file name "/home/bitnami/large_input.txt" 
+./test write 100000
+
+//read test syntax: ./test read read_size read_offset
+./test read 1000000 100000
+
+//verification - and you can see there is NO difference!
+diff /home/bitnami/larget_input.txt /home/bitnami/read_output.txt 
